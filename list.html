@@ -1,0 +1,49 @@
+<!--图书列表页	-->
+<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+		<select name="select" class="form-control" ng-model="orderBypro">
+			<option value="booktitle">booktitle</option>
+			<option value="price">price</option>
+			<option value="pubdate">pubdate</option>
+			<option value="authod">authod</option>
+		</select>
+	</div>
+	<div class="col-sm-4">
+		<div class="form-group form-inline">
+			<input type="text" class="form-control"ng-model="query" placeholder="Enter query"/>
+			<button class="btn btn-primary"><span class="glyphicon glyphicon-serch"></span>搜索</button>
+		</div>
+		
+		
+	</div>
+</div>
+<p></p>
+<ul class="list-group">
+	<li class="list-group-item" ng-repeat="book in books | filter:query | orderBy:orderBypro">
+		<!--<div class="row" >
+			<div class="col-md-6" >-->
+				<div class="row">
+					<div class="col-md-3">
+						<a href="#/{{book.id}}">
+							<img src="img/{{book.id}}.jpg" alt="{{book.id}}"class="img-responsive img-thumbnail"/>
+						</a>
+					</div>
+					<div class="col-md-9">
+						<div class="text-right"><label  class="label {{book.state | checkStatelabelfilter}}">
+							{{book.state | checkStatefilter}}
+						</label></div>
+						<blockquote>										
+							<h2><a href="#/{{book.id}}">{{book.booktitle}}</a></h2>
+							<footer>{{book.authod}}</footer>
+						</blockquote>
+						<div class="text-right">
+							<button class="btn btn-primary" ng-click="showMessage(this)">
+								<span class="glyphicon glyphicon-shopping-cart"></span>${{book.price}}
+							</button>
+						</div>
+					</div>
+				<!--</div>
+			</div>-->
+	</li>
+</ul>

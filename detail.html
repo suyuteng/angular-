@@ -1,0 +1,35 @@
+<!--图书详情页与推荐-->
+<div class="panel panel-success">	
+	<div class="panel-heading">Book detail</div>
+	<div class="panel-body">
+		<div class="row">
+		<div class="col-sm-6">
+			<a href="#" >
+				<img ng-src="img/{{cover}}.jpg" class="img-responsive img-thumbnail"  alt="{{book.booktitle}}"/ >
+			</a>
+			
+		</div>
+		<div class="col-sm-6">
+			<dl class="dl-horizontal">
+				<dt>title</dt>
+				<dd>{{book.booktitle}}</dd>
+				<dt>authod</dt>
+				<dd>{{book.authod}}</dd>
+				<dt>pubdate</dt>
+				<dd>{{book.pubdate}}</dd>
+				<dt>price</dt>
+				<dd>{{book.price}}</dd>
+			</dl>
+			<h3>relate book</h3>
+			<div class="row">
+				<div class="col-sm-3" ng-repeat="img in book.images">
+					<img ng-click="coverSet(img)" src="img/{{img}}.jpg" class="img-responsive img-thumbnail" alt="{{img}}" />
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="panel-footer text-center">
+		<a href="javascript:history.back()" class="text-right">Back list</a>
+	</div>
+</div>
